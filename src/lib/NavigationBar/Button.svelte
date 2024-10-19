@@ -31,6 +31,7 @@
         background: transparent;
         cursor: pointer;
         border: 0;
+        transition: background 0.25s;
     }
     button:hover {
         background: rgba(0, 0, 0, 0.2);

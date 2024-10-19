@@ -20,10 +20,10 @@
 
 <div class="nav">
     <img
-        src="/favicon_any.png"
+        src="/logos/outline.svg"
         alt="Logo"
         class="logo-margin"
-        style="height: 30px;"
+        style="height: 40px;"
     />
     <button class="theme-switcher" on:click={switchTheme}>
         <img src="/images/theme_switcher.svg" alt="Theme Switcher" />
@@ -49,6 +49,7 @@
         align-items: center;
 
         background: #ff4b4b;
+        border-radius: 0px 0px 16px 16px;
     }
     .logo-margin {
         margin: 0 6px;
@@ -60,6 +61,7 @@
         border: 0;
         margin: 0;
         cursor: pointer;
+        transition: background 0.25s;
     }
     .theme-switcher:hover {
         background: rgba(0, 0, 0, 0.2);
@@ -74,6 +76,6 @@
     }
 
     :global(body.dark) .nav {
-        background: #333;
+        background: #382020;
     }
 </style>

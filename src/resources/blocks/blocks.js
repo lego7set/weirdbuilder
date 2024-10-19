@@ -36,6 +36,7 @@ function register() {
                 "name": "TYPE",
                 "options": [
                     [ "block", "COMMAND" ],
+                    [ "hat", "EVENT" ],
                     [ "reporter", "REPORTER" ],
                     [ "boolean", "BOOLEAN" ],
                 ]
@@ -59,7 +60,6 @@ function register() {
                 "name": "FUNC"
             }
         ],
-        nextStatement: null,
         inputsInline: false,
         colour: categoryColor,
     }, (block) => {
@@ -70,13 +70,14 @@ function register() {
         const FUNC = javascriptGenerator.statementToCode(block, 'FUNC');
         
         const code = `blocks.push({
-            opcode: \`${ID}\`,
+            opcode: "${ID}",
             blockType: Scratch.BlockType.${TYPE},
-            text: \`${TEXT}\`,
+            text: "${TEXT}",
             arguments: { ${INPUTS} },
-            disableMonitor: true
+            disableMonitor: true,
+            isEdgeActivated: false
         });
-        Extension.prototype[\`${ID}\`] = async (args, util) => { ${FUNC} };`;
+        Extension.prototype["${ID}"] = async (args, util) => { ${FUNC} };`;
         return `${code}\n`;
     })
 
@@ -135,6 +136,42 @@ function register() {
         },`;
         return `${code}\n`;
     })
+    registerBlock(`${categoryPrefix}menu`, {
+        message0: 'create menu input %1 id: %2 %3 menu: %4',
+        args0: [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_input",
+                "name": "ID",
+                "text": "ID",
+                "spellcheck": false
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_input",
+                "name": "MENU",
+                "text": "ID",
+                "spellcheck": false
+            },
+        ],
+        nextStatement: "BlockInput",
+        previousStatement: "BlockInput",
+        inputsInline: false,
+        colour: categoryColor,
+    }, (block) => {
+        const ID = block.getFieldValue('ID')
+        const MENU = block.getFieldValue('MENU')
+        
+        const code = `"${ID}": {
+            type: Scratch.ArgumentType.STRING,
+            menu: '${MENU}'
+        },`;
+        return `${code}\n`;
+    })
 
     // get input
     registerBlock(`${categoryPrefix}get`, {
@@ -155,6 +192,17 @@ function register() {
         return [`args["${NAME}"]`, javascriptGenerator.ORDER_ATOMIC];
     })
 
+    // get input
+    registerBlock(`${categoryPrefix}currentSprite`, {
+        message0: 'current sprite',
+        args0: [],
+        output: "Sprite",
+        inputsInline: true,
+        colour: categoryColor
+    }, (block) => {
+        return [`util.target`, javascriptGenerator.ORDER_ATOMIC];
+    })
+
     // return
     registerBlock(`${categoryPrefix}return`, {
         message0: 'return %1',
@@ -170,6 +218,27 @@ function register() {
     }, (block) => {
         const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
         const code = `return ${VALUE || ''}`;
+        return `${code}\n`;
+    })
+
+    // return
+    registerBlock(`${categoryPrefix}callhat`, {
+        message0: 'call hat %1',
+        args0: [
+            {
+                "type": "field_input",
+                "name": "NAME",
+                "text": "HATID",
+                "spellcheck": false
+            }
+        ],
+        previousStatement: null,
+        nextStatement: null,
+        inputsInline: true,
+        colour: categoryColor,
+    }, (block) => {
+        const NAME = block.getFieldValue('NAME')
+        const code = `Scratch.vm.runtime.startHats(\`\${Extension.prototype.getInfo().id}_${NAME}\`)`;
         return `${code}\n`;
     })
 }

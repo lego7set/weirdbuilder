@@ -31,12 +31,16 @@
     const Theme = Blockly.Theme.defineTheme("BasicTheme", {
         base: Blockly.Themes.Classic,
         fontStyle: {
-            family: '"Source Code Pro", monospace',
-            weight: "700",
+            family: '"Inter", sans-serif',
+            weight: "500",
             size: 12,
         },
         startHats: true,
     });
+
+    Blockly.VerticalFlyout.prototype.getFlyoutScale = function () {
+        return config.zoom.startScale;
+    };
 
     import En from "blockly/msg/en";
     import "blockly/blocks";
@@ -54,6 +58,7 @@
     import registerEvents from "../resources/blocks/events.js";
     import registerControl from "../resources/blocks/control.js";
     import registerSensing from "../resources/blocks/sensing.js";
+    import registerSprites from "../resources/blocks/sprites.js";
     import registerSound from "../resources/blocks/sound.js";
     import registerLiterals from "../resources/blocks/literals.js";
     import registerOperators from "../resources/blocks/operators.js";
@@ -62,6 +67,7 @@
     import registerJSON from "../resources/blocks/json.js";
     import registerBlocks from "../resources/blocks/blocks.js";
     import registerFunctions from "../resources/blocks/functions.js";
+    import registerMenus from "../resources/blocks/menus.js";
     import registerDebug from "../resources/blocks/debug.js";
     
     registerCore();
@@ -69,6 +75,7 @@
     registerEvents();
     registerSound();
     registerSensing();
+    registerSprites();
     registerLiterals();
     registerOperators();
     registerConversions();
@@ -76,6 +83,7 @@
     registerJSON();
     registerBlocks();
     registerFunctions();
+    registerMenus();
     registerDebug();
 
     const en = {
@@ -195,9 +203,9 @@
     function downloadProject() {
         // generate file name
         let filteredProjectName = (projectName || projectID).replace(/[^a-z0-9\-]+/gim, "_");
-        let fileName = filteredProjectName + ".tb";
+        let fileName = filteredProjectName + ".tb0";
         if (!filteredProjectName) {
-            fileName = "MyProject.tb";
+            fileName = "MyProject.tb0";
         }
 
         // data
@@ -228,11 +236,11 @@
         });
     }
     function loadProject() {
-        fileDialog({ accept: ".tb" }).then((files) => {
+        fileDialog({ accept: ".tb0" }).then((files) => {
             if (!files) return;
             const file = files[0];
 
-            const projectNameIdx = file.name.lastIndexOf(".tb");
+            const projectNameIdx = file.name.lastIndexOf(".tb0");
 
             JSZip.loadAsync(file.arrayBuffer()).then(async (zip) => {
                 console.log("loaded zip file...");

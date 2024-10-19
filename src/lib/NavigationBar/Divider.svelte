@@ -6,4 +6,8 @@
         margin: 0.85rem 0.5rem;
         height: calc(100% - 0.85rem);
     }
+
+    :global(body.dark) .divider {
+        border-color: rgba(255, 255, 255, 0.15);
+    }
 </style>

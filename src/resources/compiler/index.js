@@ -146,7 +146,7 @@ class Compiler {
             `(async function (Scratch) {`,
             `const variables = {};`,
             `const blocks = [];`,
-            `const menus = [];`,
+            `const menus = {};`,
             ``,
             start
         ];
@@ -198,7 +198,7 @@ class Compiler {
 
         return [].concat(headerCode, classRegistry.top, [
             `getInfo() {`,
-            `return ${JSON.stringify(classRegistry.extensionInfo).substring(0, JSON.stringify(classRegistry.extensionInfo).length - 1) + ', "blocks": blocks }'}`,
+            `return ${JSON.stringify(classRegistry.extensionInfo).substring(0, JSON.stringify(classRegistry.extensionInfo).length - 1) + ', "blocks": blocks, "menus": menus }'}`,
             `}`,
         ], classRegistry.bottom, code, footerCode).join('\n');
     }

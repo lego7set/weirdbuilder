@@ -1,4 +1,4 @@
-<img src="./icon.png" width="64" height="64" /> <img src="./icon_title.png" height="64" />
+<img src="./static/logos/full.svg" width="128" height="128" />
 
 # TurboBuilder
 Create extensions for TurboWarp using block-based coding.

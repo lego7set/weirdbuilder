@@ -75,6 +75,34 @@ function register() {
         return `${code}\n`;
     })
 
+    // while
+    registerBlock(`${categoryPrefix}while`, {
+        message0: 'while %1 do %2 %3',
+        args0: [
+            {
+                "type": "input_value",
+                "name": "BOOL",
+                "check": "Boolean"
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_statement",
+                "name": "BLOCKS"
+            }
+        ],
+        previousStatement: null,
+        nextStatement: null,
+        inputsInline: true,
+        colour: categoryColor
+    }, (block) => {
+        const BOOL = javascriptGenerator.valueToCode(block, 'BOOL', javascriptGenerator.ORDER_ATOMIC);
+        const BLOCKS = javascriptGenerator.statementToCode(block, 'BLOCKS');
+        const code = `while (${BOOL}) { ${BLOCKS} }`;
+        return `${code}\n`;
+    })
+
     // if <> then {}
     registerBlock(`${categoryPrefix}ifthen`, {
         message0: 'if %1 then %2 %3',
