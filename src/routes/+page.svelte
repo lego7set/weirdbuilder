@@ -55,36 +55,8 @@
     registerGeneric();
 
     import registerCore from "../resources/blocks/core.js";
-    import registerEvents from "../resources/blocks/events.js";
-    import registerControl from "../resources/blocks/control.js";
-    import registerSensing from "../resources/blocks/sensing.js";
-    import registerSprites from "../resources/blocks/sprites.js";
-    import registerSound from "../resources/blocks/sound.js";
-    import registerLiterals from "../resources/blocks/literals.js";
-    import registerOperators from "../resources/blocks/operators.js";
-    import registerConversions from "../resources/blocks/conversions.js";
-    import registerVariables from "../resources/blocks/variables.js";
-    import registerJSON from "../resources/blocks/json.js";
-    import registerBlocks from "../resources/blocks/blocks.js";
-    import registerFunctions from "../resources/blocks/functions.js";
-    import registerMenus from "../resources/blocks/menus.js";
-    import registerDebug from "../resources/blocks/debug.js";
     
     registerCore();
-    registerControl();
-    registerEvents();
-    registerSound();
-    registerSensing();
-    registerSprites();
-    registerLiterals();
-    registerOperators();
-    registerConversions();
-    registerVariables();
-    registerJSON();
-    registerBlocks();
-    registerFunctions();
-    registerMenus();
-    registerDebug();
 
     const en = {
         rtl: false,
