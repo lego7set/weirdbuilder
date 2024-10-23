@@ -44,7 +44,7 @@ export default function register() {
     message0: "%1",
     args0: [
       {
-        type: "field_checkbox",
+        type: "field_better_checkbox",
         name: "CHECKBOX",
         checked: true
       }
