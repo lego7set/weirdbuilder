@@ -13,7 +13,7 @@ export default function registerField() {
       }
       initView() {
         super.initView();
-        textElement.style.display = "block"; // override none
+        this.getTextElement().style.display = "block"; // override none
       }
       getDisplayText_() {
         return this.getValueBoolean() ? '✓' : '✗';
