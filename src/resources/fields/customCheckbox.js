@@ -18,7 +18,7 @@ export default function registerField() {
       setValue(...args) {
         console.log(...args);
         super.setValue(...args);
-        if (this.getTextElement()) this.getTextElement().style.display = "block";
+        if (this.textElement_) this.getTextElement().style.display = "block";
       }
       doValueUpdate() {
         super.doValueUpdate();
