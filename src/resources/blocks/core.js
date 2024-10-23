@@ -14,7 +14,7 @@ export default function register() {
                 "value": 0
             }
         ],
-        output: "Number",
+        output: ["Number", "Core"],
         inputsInline: true,
         colour: color
     }, (block) => {
@@ -32,7 +32,7 @@ export default function register() {
                 "text": ""
             }
         ],
-        output: "String",
+        output: ["String", "Core"],
         inputsInline: true,
         colour: color
     }, (block) => {
@@ -49,7 +49,7 @@ export default function register() {
         checked: true
       }
     ],
-    output: "Boolean",
+    output: ["Boolean", "Core"],
     inputsInline: true,
     colour: color
   }, (block) => {
