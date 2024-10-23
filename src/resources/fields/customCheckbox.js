@@ -5,7 +5,9 @@ export default function registerField() {
   Blockly.FieldBetterCheckbox = function(opt_value) {
       Blockly.FieldCheckbox.call(this, opt_value);
   };
-  Blockly.utils.object.inherits(Blockly.FieldCustomCheckbox, Blockly.FieldCheckbox);
+  Blockly.FieldBetterCheckbox.prototype = Object.create(Blockly.FieldCheckbox.prototype);
+  Blockly.FieldBetterCheckbox.prototype.constructor = Blockly.FieldBetterCheckbox;
+  Blockly.FieldBetterCheckbox.superClass_ = Blockly.FieldCheckbox.prototype;
   
   Blockly.FieldBetterCheckbox.prototype.init = function() {
       Blockly.FieldBetterCheckbox.superClass_.init.call(this);
