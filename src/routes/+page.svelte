@@ -165,7 +165,11 @@
         window.onbeforeunload = () => "";
         compiler = new Compiler(workspace);
         // workspace was changed
-        // workspace.addChangeListener(updateGeneratedCode);
+        function onload() {
+            updateGeneratedCode();
+            workspace.removeChangeListener(onload);
+        }
+        workspace.addChangeListener(onload);
 
         EventManager.allowAttachment();
         EventManager.on(EventManager.EVENT_THEME_CHANGED, () => {
