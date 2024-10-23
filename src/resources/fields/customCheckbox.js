@@ -15,6 +15,11 @@ export default function registerField() {
         super.initView();
         this.getTextElement().style.display = "block"; // override none
       }
+      setValue(...args) {
+        console.log(...args);
+        super.setValue(...args);
+        this.getTextElement().style.display = "block"
+      }
       doValueUpdate() {
         super.doValueUpdate();
         console.log(this.getTextElement());
