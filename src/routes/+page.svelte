@@ -53,8 +53,14 @@
     // Blocks
 
     import registerCore from "../resources/blocks/core.js";
-    
+
     registerCore();
+
+    // custom fields
+
+    import coolCheckbox from "../resources/fields/customCheckbox.js";
+
+    coolCheckbox();
 
     const en = {
         rtl: false,
