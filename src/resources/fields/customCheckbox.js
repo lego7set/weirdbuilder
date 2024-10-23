@@ -23,9 +23,9 @@ export default function registerField() {
   };
   
   
-  Blockly.FieldBetterCheckbox.prototype.render = function() {
-      this.textElement_.textContent = this.getText();
-      Blockly.FieldBetterCheckbox.superClass_.render.call(this);
+  Blockly.FieldBetterCheckbox.prototype.render_ = function() {
+      console.log(this.getTextElement());
+      Blockly.FieldBetterCheckbox.superClass_.render_.call(this);
   };
 
   Blockly.FieldBetterCheckbox.fromJson = function(options) {
