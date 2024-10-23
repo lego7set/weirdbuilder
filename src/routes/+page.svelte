@@ -189,7 +189,7 @@
         window.onbeforeunload = () => "";
         compiler = new Compiler(workspace);
         // workspace was changed
-        // workspace.addChangeListener(updateGeneratedCode);
+        workspace.addChangeListener(updateGeneratedCode);
 
         EventManager.allowAttachment();
         EventManager.on(EventManager.EVENT_THEME_CHANGED, () => {
@@ -530,14 +530,6 @@
             <div class="row-subsubmenus">
                 <div class="codeActionsWrapper">
                     <p style="margin-right: 12px"><b>Extension Code</b></p>
-                    <StyledButton
-                        on:click={() => {
-                            updateGeneratedCode();
-                        }}
-                    >
-                        Generate
-                    </StyledButton>
-                    <div style="margin-right: 4px" />
                     <StyledButton
                         on:click={() => {
                             // copy code
