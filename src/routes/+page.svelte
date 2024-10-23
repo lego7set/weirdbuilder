@@ -51,8 +51,6 @@
     import preload from "../resources/preload";
 
     // Blocks
-    import registerGeneric from "../resources/blocks/generic.js";
-    registerGeneric();
 
     import registerCore from "../resources/blocks/core.js";
     
