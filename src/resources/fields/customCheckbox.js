@@ -23,6 +23,10 @@ export default function registerField() {
       this.textElement_.textContent = this.getText();
       Blockly.FieldBetterCheckbox.superClass_.render.call(this);
   };
+
+  Blockly.FieldCustomCheckbox.prototype.fromJson = function(options) {
+    this.setValue(!!options['checked']);
+  };
   
   Blockly.fieldRegistry.register('field_better_checkbox', Blockly.FieldBetterCheckbox);
 }
