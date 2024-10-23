@@ -19,6 +19,7 @@ export default function registerField() {
         super.doValueUpdate();
         if (this.textElement_) {
           this.textElement_.style.display = "block" // override none, again
+          console.log(this.textElement_, this.getTextElement())
         }
       }
       getDisplayText_() {
