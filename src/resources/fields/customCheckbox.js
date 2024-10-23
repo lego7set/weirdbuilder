@@ -1,4 +1,5 @@
 export default function registerField() {
+  console.log(Blockly);
   Blockly.FieldBetterCheckbox = function(opt_value) {
       Blockly.FieldCheckbox.call(this, opt_value);
   };
