@@ -28,7 +28,7 @@ export default function registerField() {
       Blockly.FieldBetterCheckbox.superClass_.render.call(this);
   };
 
-  Blockly.FieldBetterCheckbox.fromJson = function() {
+  Blockly.FieldBetterCheckbox.fromJson = function(options) {
     const checked = Boolean(Blockly.utils.parsing.replaceMessageReferences(
       options['checked']));
     return new (Blockly.FieldBetterCheckbox)(checked);
