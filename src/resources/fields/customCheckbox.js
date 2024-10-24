@@ -15,13 +15,9 @@ export default function registerField() {
         super.initView();
         this.getTextElement().style.display = "block"; // override none
       }
-      setValue(...args) {
-        console.log(...args);
-        super.setValue(...args);
-        if (this.textElement_) (this.getTextElement().style.display = "block"), this.forceRerender(); // idk
-      }
-      doValueUpdate() {
+      doValueUpdate_(newValue) {
         this.value_ = this.convertValueToBool_(newValue);
+        if (this.textElement_) (this.getTextElement().style.display = "block"), this.forceRerender();
       }
       getDisplayText_() {
         return this.getValueBoolean() ? '✓' : '✗';
