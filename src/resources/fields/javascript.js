@@ -24,7 +24,7 @@ export default function registerField() {
         this.container_ = dom.createSvgElement(
           Svg.FOREIGNOBJECT,
           {
-            width: String(this.size_.width),
+            width: "300",
             height: String(this.size_.height),
             class: "editorContainer",
           },
@@ -61,6 +61,7 @@ export default function registerField() {
             basicSetup,
             keymap.of([indentWithTab]),
             js,
+            EditorView.lineWrapping,
             autocompletion(),
             EditorView.updateListener.of((v) => {
               console.log(v, v.docChanged);
