@@ -25,7 +25,7 @@ export default function registerField() {
           Svg.FOREIGNOBJECT,
           {
             width: "300",
-            height: String(this.size_.height),
+            height: "30",
             class: "editorContainer",
           },
           this.fieldGroup_
