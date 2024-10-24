@@ -78,11 +78,11 @@ export default function registerField() {
           parent: this.container_
         });
         console.log(this.view_);
-        this.size_.width = 366;
+        this.size_.width = 380;
         this.size_.height = (this.container_.firstChild.offsetHeight || 30);
         console.log(this.container_.firstChild);
         this.container_.setAttribute("height", (this.container_.firstChild.offsetHeight || 30));
-        this.container_.firstChild.style.left = "12";
+        this.container_.firstChild.style.left = "20";
         this.container_.firstChild.style.bottom = "3"
       }
 
