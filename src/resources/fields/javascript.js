@@ -77,12 +77,16 @@ export default function registerField() {
           parent: this.container_
         });
         console.log(this.view_);
-        this.size_.width = 375;
+        this.size_.width = 358;
         this.size_.height = (this.container_.firstChild.offsetHeight || 30) + 12;
         console.log(this.container_.firstChild);
         this.container_.setAttribute("height", this.container_.firstChild.offsetHeight || 30);
-        this.container_.firstChild.style.left = "12.5px";
-        this.container_.firstChild.style.bottom = "6px"
+        this.container_.firstChild.style.left = "4px";
+        this.container_.firstChild.style.bottom = "3px"
+      }
+
+      getText() {
+        return this.value_.substring(0, 8) + "..."
       }
 
       toXml(el) {
