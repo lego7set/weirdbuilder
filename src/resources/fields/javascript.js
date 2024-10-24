@@ -11,6 +11,7 @@ export default function registerField() {
   Blockly.fieldRegistry.unregister('field_javascript');
   Blockly.FieldJavascript = (
     class jseditor extends Blockly.Field {
+      SERIALIZABLE = true
       static fromJson(options) {
         return new this(String(options.value))
       }
@@ -27,6 +28,7 @@ export default function registerField() {
           },
           this.fieldGroup_
         );
+        console.log(this.container_);
         const js = javascript();
         /* 
         const completions = [
@@ -68,6 +70,7 @@ export default function registerField() {
           ],
           parent: this.container_
         });
+        console.log(this.view_)
       }
 
       toXml(el) {
