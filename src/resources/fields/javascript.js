@@ -27,6 +27,7 @@ export default function registerField() {
             width: "350",
             height: "30",
             class: "editorContainer",
+            overflow: "visible"
           },
           this.fieldGroup_
         );
