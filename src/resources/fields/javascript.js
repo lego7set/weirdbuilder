@@ -77,7 +77,7 @@ export default function registerField() {
         this.size_.width = 300;
         this.size_.height = this.container_.firstChild.offsetHeight || 30;
         console.log(this.container_.firstChild);
-        this.container_.setAttribute("height", this.container_.firstChild.offsetHeight)
+        this.container_.setAttribute("height", this.container_.firstChild.offsetHeight || 30)
       }
 
       toXml(el) {
