@@ -82,8 +82,8 @@ export default function registerField() {
         this.size_.height = (this.container_.firstChild.offsetHeight || 30) + 40;
         console.log(this.container_.firstChild);
         this.container_.setAttribute("height", (this.container_.firstChild.offsetHeight || 30) + 25);
-        this.container_.firstChild.style.left = "8px";
-        this.container_.firstChild.style.bottom = "3px"
+        this.container_.firstChild.style.left = "8";
+        this.container_.firstChild.style.bottom = "3"
       }
 
       getText() {
