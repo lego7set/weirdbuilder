@@ -66,8 +66,8 @@ export default function registerField() {
             EditorView.updateListener.of((v) => {
               console.log(v, v.docChanged);
               if (v.heightChanged) { this.size_.height = this.container_.firstChild.offsetHeight || 30; this.container_.setAttribute("height", this.container_.firstChild.offsetHeight || 30); }
-              this.size_.width = this.container_.firstChild.offsetWidth;
-              this.container_.setAttribute("width", this.container_.firstChild.offsetWidth);
+              //this.size_.width = this.container_.firstChild.offsetWidth;
+              //this.container_.setAttribute("width", this.container_.firstChild.offsetWidth);
               if (v.docChanged) {
                 // Document changed
                 this.setValue(this.view_.state.doc.toString())
