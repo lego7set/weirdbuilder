@@ -59,8 +59,10 @@
     // custom fields
 
     import coolCheckbox from "../resources/fields/customCheckbox.js";
+    import jsEditor from "../resources/fields/javascript.js";
 
     coolCheckbox();
+    jsEditor();
 
     const en = {
         rtl: false,
