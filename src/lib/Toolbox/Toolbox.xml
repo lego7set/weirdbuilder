@@ -2,6 +2,7 @@
     <category name="Core" colour="#FFFFFF">
         <block type="core_number" />
         <block type="core_text" />
+        <block type="core_javascriptText" />
         <block type="core_checkbox" />
         <block type="core_checkbox"><field name="CHECKBOX">FALSE</field></block>
     </category>
