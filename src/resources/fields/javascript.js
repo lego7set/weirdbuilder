@@ -65,6 +65,7 @@ export default function registerField() {
             autocompletion(),
             EditorView.updateListener.of((v) => {
               console.log(v, v.docChanged);
+              if (v.heightChanged) { this.size_.height = this.container_.firstChild.offsetHeight || 30; this.container_.setAttribute("height", this.container_.firstChild.offsetHeight || 30); }
               if (v.docChanged) {
                 // Document changed
                 this.setValue(this.view_.state.doc.toString())
@@ -87,6 +88,7 @@ export default function registerField() {
       fromXml(el) {
         this.setValue(el.textContent.replace(/&#10;/g, "\n"))
       }
+      render_() {}
     }
   )
   Blockly.fieldRegistry.register('field_javascript', Blockly.FieldJavascript)
