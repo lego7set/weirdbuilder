@@ -24,7 +24,7 @@ export default function registerField() {
         this.container_ = dom.createSvgElement(
           Svg.FOREIGNOBJECT,
           {
-            width: "300",
+            width: "400",
             height: "30",
             class: "editorContainer",
           },
@@ -80,7 +80,8 @@ export default function registerField() {
         this.size_.width = 300;
         this.size_.height = this.container_.firstChild.offsetHeight || 30;
         console.log(this.container_.firstChild);
-        this.container_.setAttribute("height", this.container_.firstChild.offsetHeight || 30)
+        this.container_.setAttribute("height", this.container_.firstChild.offsetHeight || 30);
+        this.container_.firstChild.setAttribute("left", "50")
       }
 
       toXml(el) {
