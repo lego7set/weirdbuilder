@@ -24,7 +24,7 @@ export default function register() {
     });
 
   registerBlock(`${prefix}text`, {
-        message0: '%1',
+        message0: '"%1"',
         args0: [
             {
                 "type": "field_input",
@@ -55,5 +55,21 @@ export default function register() {
   }, (block) => {
         const TEXT = block.getFieldValue('CHECKBOX');
         return [TEXT === "TRUE" ? "true" : "false", javascriptGenerator.ORDER_ATOMIC]
-    })
+    }),
+
+  registerBlock(`${prefix}javascriptText`, {
+    message0: "%1",
+    args0: [
+      {
+        type: "field_javascript",
+        name: "TEXT",
+        value: 'console.log("Hello, World!")'
+      }
+    ],
+    output: ["String", "JavascriptText", "Core"],
+    inputsInline: true
+    colour: color
+  }, (block) => {
+    return [block.getFieldValue("TEXT"), javascriptGenerator.ORDER_ATOMIC]
+  });
 }
