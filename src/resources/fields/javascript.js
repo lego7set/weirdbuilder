@@ -24,8 +24,8 @@ export default function registerField() {
         this.container_ = dom.createSvgElement(
           Svg.FOREIGNOBJECT,
           {
-            width: "100%",
-            height: "100%",
+            width: String(this.size_.width),
+            height: String(this.size_.height),
             class: "editorContainer",
           },
           this.fieldGroup_
