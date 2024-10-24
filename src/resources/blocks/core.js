@@ -67,7 +67,7 @@ export default function register() {
       }
     ],
     output: ["String", "JavascriptText", "Core"],
-    inputsInline: true
+    inputsInline: true,
     colour: color
   }, (block) => {
     return [block.getFieldValue("TEXT"), javascriptGenerator.ORDER_ATOMIC]
