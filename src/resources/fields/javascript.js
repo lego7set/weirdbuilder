@@ -65,7 +65,7 @@ export default function registerField() {
             autocompletion(),
             EditorView.updateListener.of((v) => {
               console.log(v, v.docChanged);
-              if (v.heightChanged) { this.container_.setAttribute("height", this.container_.firstChild.offsetHeight || 30); this.size_.height = (this.container_.firstChild.offsetHeight || 30) + 12; this.forceRerender() }
+              if (v.heightChanged) { this.container_.setAttribute("height", (this.container_.firstChild.offsetHeight || 30) + 25); this.size_.height = (this.container_.firstChild.offsetHeight || 30) + 40; this.forceRerender() }
               //this.size_.width = this.container_.firstChild.offsetWidth;
               //this.container_.setAttribute("width", this.container_.firstChild.offsetWidth);
               if (v.docChanged) {
@@ -77,11 +77,11 @@ export default function registerField() {
           parent: this.container_
         });
         console.log(this.view_);
-        this.size_.width = 358;
-        this.size_.height = (this.container_.firstChild.offsetHeight || 30) + 12;
+        this.size_.width = 366;
+        this.size_.height = (this.container_.firstChild.offsetHeight || 30) + 40;
         console.log(this.container_.firstChild);
-        this.container_.setAttribute("height", this.container_.firstChild.offsetHeight || 30);
-        this.container_.firstChild.style.left = "4px";
+        this.container_.setAttribute("height", (this.container_.firstChild.offsetHeight || 30) + 25);
+        this.container_.firstChild.style.left = "8px";
         this.container_.firstChild.style.bottom = "3px"
       }
 
