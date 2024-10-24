@@ -73,7 +73,8 @@ export default function registerField() {
           ],
           parent: this.container_
         });
-        console.log(this.view_)
+        console.log(this.view_);
+        this.container_.setAttribute("height", this.container_.firstChild.offsetHeight)
       }
 
       toXml(el) {
