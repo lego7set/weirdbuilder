@@ -6,4 +6,5 @@
         <block type="core_checkbox" />
         <block type="core_checkbox"><field name="CHECKBOX">FALSE</field></block>
     </category>
+    <category name="Global Variables" colour="#008000" custom="VARIABLE"></category>
 </xml>
