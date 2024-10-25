@@ -84,7 +84,6 @@ export default function registerField() {
         this.container_.setAttribute("height", (this.container_.firstChild.offsetHeight || 30));
         this.container_.firstChild.style.left = "20";
         this.container_.firstChild.style.bottom = "3";
-        this.container_.firstChild.style.borderRadius = "80px";
       }
 
       getText() {
